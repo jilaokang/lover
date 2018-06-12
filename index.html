@@ -42,7 +42,7 @@
             font-weight: 800;
         }
 
-        h1{
+        h1 {
             font-size: 3.8em;
         }
     </style>
@@ -54,7 +54,7 @@
     <div class="row justify-content-md-center">
         <div class="col-md-3 col-xs-12">
             <div class="row">
-                <img style="position: absolute;top: 0;z-index: 0" src="image/lover1.jpg">
+                <img id="img" style="position: absolute;top: 0;z-index: 0">
             </div>
             <div class="row">
                 <div class="col-xs-12">
@@ -69,6 +69,21 @@
         </div>
     </div>
 </div>
+
+<script>
+    let dom = document.getElementById('img')
+
+    let pics = ['lover1.jpg', 'lover2.jpg', 'lover3.jpg', 'lover4.jpg', 'lover5.jpg', 'lover6.jpg']
+
+    window.onload = function f() {
+        let random = parseInt(Math.random() * pics.length)
+
+        dom.src = './image/' + pics[random]
+    }
+
+
+</script>
+
 <script>
     let loverTime = document.getElementById('time');
     let loverDom = document.getElementById('loverDate');
