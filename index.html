@@ -74,50 +74,19 @@
 </div>
 
 <script>
-    let dom = document.getElementById('img')
+	let dom = document.getElementById('img')
 
-    let pics = ['lover1.jpg', 'lover2.jpg', 'lover3.jpg']
+	let pics = ['lover1.jpg', 'lover2.jpg', 'lover3.jpg']
+	let random = parseInt(Math.random() * pics.length)
 
-    window.onload = function f() {
-        let random = parseInt(Math.random() * pics.length)
+	dom.src = './image/' + pics[random]
+	let loverTime = document.getElementById('time');
+	loverTime.innerText = new Date().toTimeString().split(' ')[0]
+	let loverDom = document.getElementById('loverDate');
 
-        dom.src = './image/' + pics[random]
-    }
+	loverDom.innerText = ((loverDate) => parseInt((Date.now() - loverDate.getTime()) / 86400000))(new Date("Tue Jun 10 2018 10:54:03 GMT+0000 (UTC)"))
 
-
-</script>
-
-<script>
-    let loverTime = document.getElementById('time');
-    let loverDom = document.getElementById('loverDate');
-
-    let innerLoverDate = function () {
-        let loverDate = new Date("Tue Jun 10 2018 10:54:03 GMT+0000 (UTC)");
-        let nowDate = new Date();
-        let date = (nowDate.getTime() - loverDate.getTime()) / 86400000;
-        loverDom.innerText = parseInt(date)
-    }();
-
-    function time() {
-        let now = new Date()
-        let hour = now.getHours();
-        let min = now.getMinutes();
-        let sec = now.getSeconds();
-
-        function length(a) {
-            if (a.toString().length < 2) {
-                return `0${a.toString()}`
-            }
-            else return a
-        }
-
-        sec = length(sec)
-        min = length(min)
-        loverTime.innerText = `${hour}:${min}:${sec}`
-    }
-
-    setInterval(time, 1000);
-
+	setInterval(() => loverTime.innerText = new Date().toTimeString().split(' ')[0], 1000)
 </script>
 </body>
 </html>
